@@ -1,15 +1,17 @@
-[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'Week8_demo.blg'
-[33] biber-darwin:315> INFO - === Tue May 19, 2020, 09:36:27
-[56] Biber.pm:371> INFO - Reading 'Week8_demo.bcf'
-[132] Biber.pm:889> INFO - Found 3 citekeys in bib section 0
-[142] Biber.pm:4093> INFO - Processing section 0
-[151] Biber.pm:4254> INFO - Looking for bibtex format file 'references.bib' for section 0
-[154] bibtex.pm:1523> INFO - LaTeX decoding ...
-[165] bibtex.pm:1340> INFO - Found BibTeX data source 'references.bib'
-[206] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[206] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[206] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[206] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[217] bbl.pm:636> INFO - Writing 'Week8_demo.bbl' with encoding 'UTF-8'
-[218] bbl.pm:739> INFO - Output to Week8_demo.bbl
+[190] biber-MSWIN32:322> INFO - === 
+[304] Biber.pm:415> INFO - Reading 'Week8_demo.bcf'
+[557] Biber.pm:943> INFO - Found 3 citekeys in bib section 0
+[609] Biber.pm:4256> INFO - Processing section 0
+[610] Utils.pm:75> INFO - Globbing data source 'references.bib'
+[666] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
+[722] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
+[744] bibtex.pm:1653> INFO - LaTeX decoding ...
+[795] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
+[1034] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1034] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1034] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[1034] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[1105] bbl.pm:652> INFO - Writing 'Week8_demo.bbl' with encoding 'UTF-8'
+[1110] bbl.pm:755> INFO - Output to Week8_demo.bbl
