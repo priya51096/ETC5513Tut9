@@ -60,13 +60,15 @@ plot_divisionA <- tut9dat %>%
          `Offence Subdivision` == "A10 Homicide and related offences")
 ```
 
-```{r plot_A10 }
+```{r plot_A10, fig.cap= "A10 Homicide and realted offences plot" }
 plot_divisionA %>%
   ggplot(aes( x = Year,
               y = `Incidents Recorded`, 
               colour = `Offence Subgroup`)) +
   geom_line()
 ```
+
+In figure \@ref(fig:plot_A10) we can see.......
 
 ```{r A11_table}
 plot_divisionA %>%
@@ -75,6 +77,7 @@ plot_divisionA %>%
   kable_styling(latex_options = c("striped", "hold_position"))
 ```
 
+In Table \@ref(tab:A11_table) we can see.....
 
 # Citation examples
 
