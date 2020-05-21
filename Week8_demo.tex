@@ -1,0 +1,477 @@
+\documentclass[11pt,a4paper,]{article}
+\usepackage{lmodern}
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={Corona Virus Report},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{geometry}
+\geometry{a4paper, centering, text={16cm,24cm}}
+\usepackage[style=authoryear-comp,]{biblatex}
+\addbibresource{references.bib}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Corona Virus Report}
+
+%% MONASH STUFF
+
+%% CAPTIONS
+\RequirePackage{caption}
+\DeclareCaptionStyle{italic}[justification=centering]
+ {labelfont={bf},textfont={it},labelsep=colon}
+\captionsetup[figure]{style=italic,format=hang,singlelinecheck=true}
+\captionsetup[table]{style=italic,format=hang,singlelinecheck=true}
+
+
+%% FONT
+\RequirePackage{bera}
+\RequirePackage[charter,expert,sfscaled]{mathdesign}
+\RequirePackage{fontawesome}
+
+%% HEADERS AND FOOTERS
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\rfoot{\Large\sffamily\raisebox{-0.1cm}{\textbf{\thepage}}}
+\makeatletter
+\lhead{\textsf{\expandafter{\@title}}}
+\makeatother
+\rhead{}
+\cfoot{}
+\setlength{\headheight}{15pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\sffamily\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+%% MATHS
+\RequirePackage{bm,amsmath}
+\allowdisplaybreaks
+
+%% GRAPHICS
+\RequirePackage{graphicx}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.8}
+
+
+%\RequirePackage[section]{placeins}
+
+%% SECTION TITLES
+
+
+%% SECTION TITLES (NEW: Changing sections and subsections color)  
+\RequirePackage[compact,sf,bf]{titlesec}
+\titleformat*{\section}{\Large\sf\bfseries\color[rgb]{0.8, 0.7, 0.1 }}
+\titleformat*{\subsection}{\large\sf\bfseries\color[rgb]{0.8, 0.7, 0.1 }}
+\titleformat*{\subsubsection}{\sf\bfseries\color[rgb]{0.8, 0.7, 0.1 }}
+\titlespacing{\section}{0pt}{2ex}{.5ex}
+\titlespacing{\subsection}{0pt}{1.5ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{.5ex}{0ex}
+
+
+%% TITLE PAGE
+\def\Date{\number\day}
+\def\Month{\ifcase\month\or
+ January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi}
+\def\Year{\number\year}
+
+%% LINE AND PAGE BREAKING
+\sloppy
+\clubpenalty = 10000
+\widowpenalty = 10000
+\brokenpenalty = 10000
+\RequirePackage{microtype}
+
+%% PARAGRAPH BREAKS
+\setlength{\parskip}{1.4ex}
+\setlength{\parindent}{0em}
+
+%% HYPERLINKS
+\RequirePackage{xcolor} % Needed for links
+\definecolor{darkblue}{rgb}{0,0,.6}
+\RequirePackage{url}
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}
+\makeatother
+\hypersetup{
+     citecolor=0 0 0,
+     breaklinks=true,
+     bookmarksopen=true,
+     bookmarksnumbered=true,
+     linkcolor=darkblue,
+     urlcolor=blue,
+     citecolor=darkblue,
+     colorlinks=true}
+
+\usepackage[showonlyrefs]{mathtools}
+\usepackage[no-weekday]{eukdate}
+
+%% BIBLIOGRAPHY   %------------------------------------------------------------------------------------------------
+
+\makeatletter
+\@ifpackageloaded{biblatex}{}{\usepackage[style=authoryear-comp, backend=biber, natbib=true]{biblatex}}
+\makeatother
+\ExecuteBibliographyOptions{bibencoding=utf8,minnames=1,maxnames=3, maxbibnames=99,dashed=false,terseinits=true,giveninits=true,uniquename=false,uniquelist=false,doi=false, isbn=false,url=true,sortcites=false}
+
+\DeclareFieldFormat{url}{\texttt{\url{#1}}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+%\DeclareFieldFormat[book]{url}{}
+%\DeclareFieldFormat[inbook]{url}{}
+%\DeclareFieldFormat[incollection]{url}{}
+%\DeclareFieldFormat[inproceedings]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+%\DeclareFieldFormat{extrayear}{}
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryCitekey{\clearfield{month}}
+
+\makeatletter
+\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
+\makeatother
+
+\author{\sf\Large\textbf{ XXX XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Reports XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
+
+\date{\sf\Date~\Month~\Year}
+\makeatletter
+\lfoot{\sf XXXX, XXXX, XXX: \@date}
+\makeatother
+
+
+%%%% PAGE STYLE FOR FRONT PAGE OF REPORTS    %----------------------------------------------------------------------------------------
+
+\makeatletter
+\def\organization#1{\gdef\@organization{#1}}
+\def\telephone#1{\gdef\@telephone{#1}}
+\def\email#1{\gdef\@email{#1}}
+\makeatother
+  \organization{Australian Government COVID19}
+
+  \def\name{Our consultancy \newline add names \&\newline add names}
+
+  \telephone{(03) 9905 2478}
+
+  \email{questions@company.com}                 %NEW: New email addresss ---------------------------------------
+
+\def\webaddress{\url{http://company.com/stats/consulting/}} %NEW: URl  ------------------------------------------
+\def\abn{12 377 614 630}                                    % NEW: ABN -------------------------------------------  
+\def\logo{\includegraphics[width=6cm]{logo}}  %NEW: Changing logo
+\def\extraspace{\vspace*{1.6cm}}
+\makeatletter
+\def\contactdetails{\faicon{phone} & \@telephone \\
+                    \faicon{envelope} & \@email}
+\makeatother
+
+%%%% FRONT PAGE OF REPORTS
+
+\def\reporttype{Report for}
+
+\long\def\front#1#2#3{
+\newpage
+\begin{singlespacing}
+\thispagestyle{empty}
+\vspace*{-1.4cm}
+\hspace*{-1.4cm}
+\hbox to 16cm{
+  \hbox to 6.5cm{\vbox to 14cm{\vbox to 25cm{
+    \logo
+    \vfill
+    \parbox{6.3cm}{\raggedright
+      \sf\color[rgb]{0, 0.29, 0.55}    % NEW color -company info------------------------------------------------------------------------------------
+      {\large\textbf{\name}}\par
+      \vspace{.7cm}
+      \tabcolsep=0.12cm\sf\small
+      \begin{tabular}{@{}ll@{}}\contactdetails
+      \end{tabular}
+      \vspace*{0.3cm}\par
+      ABN: \abn\par
+    }
+  }\vss}\hss}
+  \hspace*{0.2cm}
+  \hbox to 1cm{\vbox to 14cm{\rule{4pt}{26.8cm}\vss}\hss\hfill}  %NEW: Thicker vertical line -----------------------------------------------------
+  \hbox to 10cm{\vbox to 14cm{\vbox to 25cm{   
+      \vspace*{3cm}\sf\raggedright
+      \parbox{11cm}{\sf\raggedright\baselineskip=1.2cm
+         \fontsize{24.88}{30}\color[rgb]{0, 0.29, 0.55}\sf\textbf{#1}}   % NEW: title color blue ----------------------------------------------
+      \par
+      \vfill
+      \large
+      \vbox{\parskip=0.8cm #2}\par
+      \vspace*{2cm}\par
+      \reporttype\\[0.3cm]
+      \hbox{#3}%\\[2cm]\
+      \vspace*{1cm}
+      {\large\sf\textbf{\Date~\Month~\Year}}
+   }\vss}
+  }}
+\end{singlespacing}
+\newpage
+}
+
+\makeatletter
+\def\titlepage{\front{\expandafter{\@title}}{\@author}{\@organization}}
+\makeatother
+
+\usepackage{setspace}
+\setstretch{1.5}
+
+%% Any special functions or other packages can be loaded here.
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+
+\begin{document}           % Begining of document body -----------------------------------------------
+\titlepage
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\clearpage
+
+\hypertarget{research-questions}{%
+\section{Research questions:}\label{research-questions}}
+
+\begin{itemize}
+\item
+  Visual summary of corona virus contagion and dead rates in the following countries
+
+  \begin{enumerate}
+    \item Italia
+    \item Germany
+    \item Greece
+    \item Switzerland 
+    \item Sweden
+    \item France
+  \end{enumerate}
+\item
+  Visual summary of corona virus cases and deaths rates in the following countries
+\end{itemize}
+
+\begin{enumerate}
+   \item Italia
+   \item Germany
+ \end{enumerate}
+
+\hypertarget{data-set-introduction}{%
+\section{Data set introduction}\label{data-set-introduction}}
+
+"The dataset contains the latest available public data on COVID-19 including a daily situation update, the epidemiological curve and the global geographical distribution (EU/EEA and the UK, worldwide).
+
+On 12 February 2020, the novel coronavirus was named severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) while the disease associated with it is now referred to as COVID-19. Since the beginning of the coronavirus pandemic, ECDC's Epidemic Intelligence team has been collecting on daily basis the number of COVID-19 cases and deaths, based on reports from health authorities worldwide. To insure the accuracy and reliability of the data, this process is being constantly refined. This helps to monitor and interpret the dynamics of the COVID-19 pandemic not only in the European Union (EU), the European Economic Area (EEA), but also worldwide. Every day between 6.00 and 10.00 CET, a team of epidemiologists screens up to 500 relevant sources to collect the latest figures. The data screening is followed by ECDC's standard epidemic intelligence process for which every single data entry is validated and documented in an ECDC database. An extract of this database, complete with up-to-date figures and data visualisations, is then shared on the ECDC website, ensuring a maximum level of transparency." More information available \href{https://data.europa.eu/euodp/en/data/dataset/covid-19-coronavirus-data}{here}
+
+\hypertarget{exploratory-data-analysis}{%
+\section{Exploratory data analysis}\label{exploratory-data-analysis}}
+
+\hypertarget{overall}{%
+\subsection{Overall}\label{overall}}
+
+\begin{figure}
+
+{\centering \includegraphics{Week8_demo_files/figure-latex/covid-europe-1} 
+
+}
+
+\caption{Rates of covid cases}\label{fig:covid-europe}
+\end{figure}
+
+In figure \ref{fig:covid-europe} we observe the corona virus rates of a number of european countries \ldots{}
+
+\begin{figure}
+
+{\centering \includegraphics{Week8_demo_files/figure-latex/coviddeath1-1} 
+
+}
+
+\caption{Death reates for COVID19}\label{fig:coviddeath1}
+\end{figure}
+
+Figure \ref{fig:coviddeath1} wdisplay the death reates of corona virus rates in Italy, Germany \ldots{}
+
+\clearpage
+
+\hypertarget{oceania}{%
+\subsection{Oceania}\label{oceania}}
+
+\begin{figure}
+
+{\centering \includegraphics{Week8_demo_files/figure-latex/oceania-cases-1} 
+
+}
+
+\caption{COVID cases in Australia and New Zealand}\label{fig:oceania-cases}
+\end{figure}
+
+The rates of corona virus in Australia and New Zealand over time are displayed in \ref{fig:oceania-cases}
+
+\begin{figure}
+
+{\centering \includegraphics{Week8_demo_files/figure-latex/oceania-death-1} 
+
+}
+
+\caption{Death rates of COVID in Oceania}\label{fig:oceania-death}
+\end{figure}
+
+The death rates of corona virus in Australia and New Zealand over time are displayed in \ref{fig:oceania-death}
+
+\hypertarget{comparisons}{%
+\section{Comparisons}\label{comparisons}}
+
+\begin{center}\includegraphics{Week8_demo_files/figure-latex/unnamed-chunk-3-1} \end{center}
+
+\begin{figure}
+
+{\centering \includegraphics{Week8_demo_files/figure-latex/unnamed-chunk-4-1} 
+
+}
+
+\caption{Covid cases}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+\clearpage
+
+\begin{table}[!h]
+
+\caption{\label{tab:covidtab}Covid cases and deaths per month}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+countriesAndTerritories & month & year & cases & deaths\\
+\midrule
+\rowcolor{gray!6}  Australia & 1 & 2020 & 7 & 0\\
+Australia & 2 & 2020 & 18 & 0\\
+\rowcolor{gray!6}  Australia & 3 & 2020 & 4532 & 19\\
+Australia & 4 & 2020 & 2189 & 71\\
+\rowcolor{gray!6}  Australia & 5 & 2020 & 183 & 7\\
+\addlinespace
+France & 1 & 2020 & 6 & 0\\
+\rowcolor{gray!6}  France & 2 & 2020 & 51 & 2\\
+France & 3 & 2020 & 44493 & 3022\\
+\rowcolor{gray!6}  France & 4 & 2020 & 83892 & 21063\\
+France & 5 & 2020 & 10412 & 2223\\
+\addlinespace
+\rowcolor{gray!6}  Germany & 1 & 2020 & 5 & 0\\
+Germany & 2 & 2020 & 52 & 0\\
+\rowcolor{gray!6}  Germany & 3 & 2020 & 61856 & 583\\
+Germany & 4 & 2020 & 97206 & 5705\\
+\rowcolor{gray!6}  Germany & 5 & 2020 & 10099 & 1107\\
+\addlinespace
+Greece & 1 & 2020 & 0 & 0\\
+\rowcolor{gray!6}  Greece & 2 & 2020 & 4 & 0\\
+Greece & 3 & 2020 & 1208 & 43\\
+\rowcolor{gray!6}  Greece & 4 & 2020 & 1364 & 96\\
+Greece & 5 & 2020 & 134 & 12\\
+\addlinespace
+\rowcolor{gray!6}  Italy & 1 & 2020 & 3 & 0\\
+Italy & 2 & 2020 & 885 & 21\\
+\rowcolor{gray!6}  Italy & 3 & 2020 & 100851 & 11570\\
+Italy & 4 & 2020 & 101852 & 16091\\
+\rowcolor{gray!6}  Italy & 5 & 2020 & 14677 & 2713\\
+\addlinespace
+New\_Zealand & 1 & 2020 & 0 & 0\\
+\rowcolor{gray!6}  New\_Zealand & 2 & 2020 & 1 & 0\\
+New\_Zealand & 3 & 2020 & 646 & 1\\
+\rowcolor{gray!6}  New\_Zealand & 4 & 2020 & 482 & 18\\
+New\_Zealand & 5 & 2020 & 15 & 2\\
+\addlinespace
+\rowcolor{gray!6}  Russia & 1 & 2020 & 0 & 0\\
+Russia & 2 & 2020 & 2 & 0\\
+\rowcolor{gray!6}  Russia & 3 & 2020 & 1834 & 10\\
+Russia & 4 & 2020 & 97563 & 962\\
+\rowcolor{gray!6}  Russia & 5 & 2020 & 99277 & 855\\
+\addlinespace
+Sweden & 1 & 2020 & 0 & 0\\
+\rowcolor{gray!6}  Sweden & 2 & 2020 & 12 & 0\\
+Sweden & 3 & 2020 & 4016 & 146\\
+\rowcolor{gray!6}  Sweden & 4 & 2020 & 16274 & 2316\\
+Sweden & 5 & 2020 & 5619 & 758\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In Table \ref{tab:covidtab}.
+
+\clearpage
+
+\hypertarget{citation-examples}{%
+\section{Citation examples}\label{citation-examples}}
+
+\textcite{BC64} and this is another article about COVID \textcite{bai2020presumed} and I can also cite R packages as follows \textcite{ggplot2}
+
+\printbibliography
+
+\end{document}
+

@@ -1,0 +1,27 @@
+%% Any special functions or other packages can be loaded here.
+
+% %% Any special functions or other packages can be loaded here.
+\addtolength{\oddsidemargin}{-.475in}
+\addtolength{\evensidemargin}{-.475in}
+\addtolength{\textwidth}{1.2in}
+
+\addtolength{\topmargin}{-.275in}
+\addtolength{\textheight}{3in}
+
+\setlength{\parskip}{0.6cm plus 4mm minus 8mm}
+\linespread{0.95}
+
+\patchcmd{\maketitle}
+	{\@maketitle}
+	{\@maketitle\vspace{-4em}}
+	{}
+	{}
+	
+	\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1}
+
+	
+	\titlespacing*{\section}
+{2pt}{2ex}{1ex}
+
+	
