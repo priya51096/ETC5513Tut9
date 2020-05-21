@@ -49,9 +49,20 @@ library(readr)
 
 
 ```{r}
-tut9dat <- read_csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+tut9dat <- read.csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv") %>% rename("Year" = "锘縔ear")
+glimpse(tut9dat)
 ```
 
+
+
+```{r}
+offence <- tut9dat %>%
+  as.factor("Incidents.Recorded")
+
+  filter(Offence.Division == "E Justice procedures offences") %>%
+  group_by(Year) %>% 
+  summarise(totalCases = sum(Incidents.Recorded))
+```
 
 # Citation examples
 
