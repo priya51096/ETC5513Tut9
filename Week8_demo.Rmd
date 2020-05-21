@@ -52,6 +52,11 @@ library(readr)
 tut9dat <- read_csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
 ```
 
+```{r}
+Plot_divisionA <- tut9dat %>%
+  filter(`Offence Division` == "A10 Homicide and related offences")
+```
+
 
 # Citation examples
 
