@@ -36,7 +36,7 @@ output:
     toc: true
 ---
 
-```{r , echo = FALSE, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
 
 library(tidyverse)
@@ -48,10 +48,41 @@ library(readr)
 ```
 
 
-```{r}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 tut9dat <- read_csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
 ```
 
+
+
+
+# Section 3
+
+```{r filter-data-drug-offences, echo = FALSE, message = FALSE, warning = FALSE}
+drug_offences <- tut9dat %>%
+  filter(`Offence Division` == "C Drug offences")
+```
+
+```{r number-drug-off, echo = FALSE, message = FALSE, warning = FALSE}
+number_drug_offences <- drug_offences %>%
+  group_by(Year) %>%
+  summarise(Number = n())
+```
+
+```{r number-drug-off-table, echo = FALSE, message = FALSE, warning = FALSE}
+number_drug_offences %>%
+  kable(caption = "Number of Drug Offences each Year") %>%
+  kable_styling()
+```
+
+```{r graph-drug-offences, fig.cap="Number of Drug Offences each Year", echo = FALSE, message = FALSE, warning = FALSE}
+ggplot(number_drug_offences,
+       aes(x = Year,
+       y = Number,
+       group = Year)) +
+  geom_col()
+```
+
+Table \@ref(tab:number-drug-off-table) summarises the number of drug offences each year, while Figure \@ref(fig:graph-drug-offences) presents the number of offences each year in a column chart. Both the table and the figure illustrate that the number of drug offences has remained consistent over time. 
 
 # Citation examples
 
