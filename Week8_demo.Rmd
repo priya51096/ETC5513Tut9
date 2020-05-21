@@ -50,6 +50,38 @@ library(readr)
 
 ```{r}
 tut9dat <- read_csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+tut9dat
+```
+
+
+
+
+# Section 3
+
+```{r filter-data-drug-offences}
+drug_offences <- tut9dat %>%
+  filter(`Offence Division` == "C Drug offences")
+drug_offences
+```
+
+```{r number-drug-off}
+number_drug_offences <- drug_offences %>%
+  group_by(Year) %>%
+  summarise(Number = n())
+```
+
+```{r number-drug-off-table}
+number_drug_offences %>%
+  kable(caption = "Number of Drug Offences each Year") %>%
+  kable_styling()
+```
+
+```{r graph-drug-offences, fig.cap="Number of Drug Offences each Year"}
+ggplot(number_drug_offences,
+       aes(x = Year,
+       y = Number,
+       group = Year)) +
+  geom_col()
 ```
 
 
