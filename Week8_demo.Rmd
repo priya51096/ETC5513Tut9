@@ -54,6 +54,8 @@ tut9dat <- read_csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Endi
 ```
 
 
+# Section 1
+
 Select one offence from the data set and explain how has the offence changed over time?
 
 ```{r}
