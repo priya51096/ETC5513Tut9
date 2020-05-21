@@ -60,12 +60,19 @@ plot_divisionA <- tut9dat %>%
          `Offence Subdivision` == "A10 Homicide and related offences")
 ```
 
-```{r}
+```{r plot_A10 }
 plot_divisionA %>%
   ggplot(aes( x = Year,
               y = `Incidents Recorded`, 
               colour = `Offence Subgroup`)) +
   geom_line()
+```
+
+```{r A11_table}
+plot_divisionA %>%
+  filter(`Offence Subgroup` == "A11 Murder") %>%
+  kable(caption = "A11 Murder Incidents Table") %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
 ```
 
 
