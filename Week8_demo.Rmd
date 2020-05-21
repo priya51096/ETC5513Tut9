@@ -52,9 +52,20 @@ library(readr)
 tut9dat <- read_csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
 ```
 
+
+# Section Offence Division A Crimes against the person, Subdivision A10 Homicide and related offences plot  
 ```{r}
-Plot_divisionA <- tut9dat %>%
-  filter(`Offence Division` == "A10 Homicide and related offences")
+plot_divisionA <- tut9dat %>%
+  filter(`Offence Division` == "A Crimes against the person", 
+         `Offence Subdivision` == "A10 Homicide and related offences")
+```
+
+```{r}
+plot_divisionA %>%
+  ggplot(aes( x = Year,
+              y = `Incidents Recorded`, 
+              colour = `Offence Subgroup`)) +
+  geom_line()
 ```
 
 
