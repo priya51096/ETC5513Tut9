@@ -44,6 +44,7 @@ library(readr)
 library(kableExtra)
 library(bookdown)
 library(readr)
+library(ggplot2)
 
 ```
 
@@ -53,11 +54,39 @@ tut9dat <- read_csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Endi
 ```
 
 
+Select one offence from the data set and explain how has the offence changed over time?
+
+```{r}
+tut9partdat <- tut9dat %>%
+  filter(`Offence Division` == "C Drug offences")
+
+```
+
+```{r offtable, fig.cap= "C drug offences"}
+table <- tut9partdat %>%
+  dplyr::select( Year, 
+                `Offence Division`,
+                `Incidents Recorded`,
+               ) 
+
+knitr::kable(
+table[1:5,], booktabs = TRUE,
+  caption = 'Table with first five rows') %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+In the table \@ref(tab:offtable) we have displayed the top five rows 
+
+```{r offfig, fig.asp="Incidents Recorded for drug offences"}
+ggplot(data = tut9partdat, mapping =  aes(x = Year, y = `Incidents Recorded`)) + geom_point()
+```
+
+In the fig \@ref(fig:offfig) we can see the incidents recorded for drug
+
 # Citation examples
 
 
- @BC64 and this is another article about COVID @bai2020presumed and I can also cite R packages as follows @ggplot2
-
+ @BC64 and this is another article about COVID and I can also cite R packages as
 
 
 
